@@ -1,0 +1,23 @@
+# AI Project Memory
+
+This is evidence-based project memory. There is **no local `.git` repository** and prior conversations are not a substitute for source/history. “Current-session” notes below are supported by the active session; older broad work is marked unverified unless code confirms it.
+
+| Date/Phase | Section/Feature | Changes Made | Important Decisions | Bugs/Issues | Fixes | Files Involved | Verification | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Existing project | Reference assets | Local runtime assets plus `ref folder/` captures/PDF and `src_backup/` are present | Reference material is not runtime code | Original provenance unavailable | Preserve assets unless task scope says otherwise | `src/assets/`, `ref folder/`, `src_backup/` | File inventory | Current |
+| Existing project | Tailwind migration/style architecture | Tailwind v4 is enabled through Vite and `index.css`; large exact-layout CSS remains in `site.css` | Use Tailwind for simple utilities; preserve custom CSS for precise selectors/layout | Layered utilities can lose to unlayered custom CSS/reset | Scope critical visual styles in `site.css` where needed | `vite.config.js`, `index.css`, `site.css` | Current code inspected | Current |
+| Existing project | Header/mobile drawer | Desktop navigation/mega menu and stateful mobile drawer/submenus implemented | Hash navigation; external reference links open separately | Historical visual adjustments not independently verifiable | Current behavior retained | `Header.jsx`, `site.css` | Source inspection | Current |
+| Existing project | Hero/about/projects/leadership/clients | Sections, local assets, Swipers, project tabs, and client grid are implemented | Use local images and external official detail links | Reference parity not globally audited | Existing implementation retained | section components, `site.css` | Source inspection | Current |
+| Existing project | Scroll progress | SVG ring is updated through rAF and visibility changes only past 200 px | Avoid per-scroll React renders | None currently verified | Passive scroll listener/ref mutation architecture | `BackToTopButton.jsx` | Source inspection | Current |
+| Existing project | 40+ Years of Experience | `CountUp` renders clipped digit reels; `useCountUp` measures line-height with `ResizeObserver` and starts at intersection threshold 0.5 | Approved feature—do not modify without explicit request | Historical reports: digit overflow, static zero, timing concerns | Current code makes zero take 10 steps, clips reels, uses 1000 ms for zero and 550 ms × place for other digits; fixed `+`; reduced-motion removes transition | `CountUp.jsx`, `useCountUp.js`, `AboutSection.jsx`, `formatNumber.js` | Current source inspected; approved status supplied in task context | Protected / Current |
+| Current session | Services section | Restored Gantari typography, verified reference colors/borders/padding, and red glow/icon decoration hover | Live reference CSS used; no unsupported card lift/scale | Incorrect colors/type and hover mismatch reported | Scoped CSS and `SectionLabel` class extension; Gantari added to font request | `ServicesSection.jsx`, `SectionLabel.jsx`, `site.css`, `index.html` | `npm.cmd run build` passed | Completed |
+| Current session | Impact + awards | Added scoped semantic styles/classes for dark metrics and awards carousel | Local CSS wins over Tailwind layer when exact values are necessary | Tailwind spacing/color utilities were overridden by unlayered reset/custom CSS, visually collapsing sections | Restored 120 px section padding, correct metric colors/borders/type, awards card proportions, arrow hover | `ImpactSection.jsx`, `AwardsSection.jsx`, `site.css` | Computed styles checked; `npm.cmd run build` passed | Completed |
+| Future | Full visual regression | Not completed | Compare at requested screenshot viewports before declaring exact parity | Possible differences remain outside recently targeted areas | To verify on demand | Whole app | Unverified | Pending |
+
+## Lessons and safeguards
+
+- Do not globally replace typography/colors after a local visual task. Service/impact/awards rules are intentionally scoped.
+- Tailwind v4 utilities do not automatically beat unlayered CSS. Inspect the cascade/computed values when spacing/color appears missing.
+- Reference screenshots can show non-hover states only. For hover, use live reference CSS/behavior or ask for a hover capture—do not invent shadows or transforms.
+- Existing source has some malformed smart-punctuation output in terminal rendering; treat any encoding cleanup as a separately verified content task.
+- After every future task, append one evidence-backed row here and update [task.md](./task.md).
