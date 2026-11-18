@@ -14,6 +14,7 @@
 | UI-005 | Align About core-feature container width | High | Completed | `site.css` | Adjusted only the core-feature desktop container from 1077px to the 1092px width measured from the supplied reference capture; build passed on 2026-11-18 |
 | UI-006 | Restore full About page size scale | High | Completed | `site.css` | Enlarged About intro, gallery, tabs, core-feature/video section, feature cards, CTA, and responsive size rules using verified reference stylesheet measurements; `npm.cmd run build` passed on 2026-11-18 |
 | UI-007 | Widen About page content containers | High | Completed | `site.css` | Reduced desktop side gutters to 32px/64px and aligned intro, CTA, and core-feature containers to a 1300px cap; tablet gutters use 20px; `npm.cmd run build` passed on 2026-11-18 |
+| UI-008 | Add reusable red CTA fill hover | High | Completed | `site.css`, `Footer.jsx` | Existing `.btn-primary` CTA links/buttons and the footer brochure-download CTA now use a 400 ms brand-red bottom-to-top fill that reverses downward on leave, preserves geometry, includes keyboard focus visibility, and respects the existing global reduced-motion rule; `npm.cmd run build` passed on 2026-11-18 |
 
 ## Pending / to verify
 
