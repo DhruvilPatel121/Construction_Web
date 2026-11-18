@@ -168,7 +168,7 @@ export default function Footer() {
               href="https://www.siddhiconstructions.com/assets/images/pdf/Siddhi%20Constructions%20Brochure%20Design.pdf"
               target="_blank"
               rel="noreferrer"
-              className="brochure-download-btn cta-hover-fill"
+              className="brochure-download-btn"
             >
               <img src={brochureDownload} alt="Download Siddhi Constructions Brochure PDF" />
             </a>
