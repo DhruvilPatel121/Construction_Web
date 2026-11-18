@@ -2463,7 +2463,7 @@ h6 {
 
 .about-gallery {
   position: relative;
-  height: 400px;
+  height: auto;
   overflow: hidden;
 }
 
@@ -2696,7 +2696,7 @@ h6 {
   .about-intro { padding: 90px 0; }
   .about-intro__grid,
   .about-features__grid { grid-template-columns: 1fr; }
-  .about-gallery { height: min(58vw, 440px); }
+  .about-gallery { height: auto; }
   .about-intro__copy { max-width: 720px; }
   .about-intro__copy h2 { font-size: 38px; }
   .about-intro__copy p { font-size: 15px; }
@@ -2725,7 +2725,7 @@ h6 {
   .about-cta { width: min(100% - 32px, 1015px); }
   .about-intro { padding: 70px 0; }
   .about-intro__grid { gap: 28px; }
-  .about-gallery { height: 290px; }
+  .about-gallery { height: auto; }
   .about-intro__copy h2 { font-size: 32px; }
   .about-intro__copy p { font-size: 14px; text-align: left; }
   .about-intro__copy .about-intro__lead { font-size: 16px; }

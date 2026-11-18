@@ -1,4 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import Swiper from "swiper";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 import Header from "../components/layout/Header.jsx";
 import Footer from "../components/layout/Footer.jsx";
 import BackToTopButton from "../components/common/BackToTopButton.jsx";
@@ -42,11 +46,39 @@ const missionItems = [
 ];
 
 export default function AboutUsPage() {
-  const [slideIndex, setSlideIndex] = useState(0);
   const [activeTab, setActiveTab] = useState("mission");
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const gallerySwiperRef = useRef(null);
+  const galleryPreviousRef = useRef(null);
+  const galleryNextRef = useRef(null);
   const dialogRef = useRef(null);
   const closeButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (!gallerySwiperRef.current) return undefined;
+
+    const swiper = new Swiper(gallerySwiperRef.current, {
+      modules: [Navigation, Autoplay],
+      slidesPerView: 1,
+      speed: 700,
+      loop: true,
+      loopPreventsSliding: false,
+      grabCursor: true,
+      autoplay: {
+        delay: 4500,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      navigation: {
+        prevEl: galleryPreviousRef.current,
+        nextEl: galleryNextRef.current,
+      },
+      observer: true,
+      observeParents: true,
+    });
+
+    return () => swiper.destroy(true, true);
+  }, []);
 
   useEffect(() => {
     if (!isVideoOpen) return undefined;
@@ -67,12 +99,6 @@ export default function AboutUsPage() {
     selectTab(nextTab);
     document.getElementById(`about-${nextTab}-tab`)?.focus();
   };
-  const changeSlide = (direction) => {
-    setSlideIndex(
-      (current) => (current + direction + slides.length) % slides.length,
-    );
-  };
-
   return (
     <div className="page-shell about-page">
       <Header />
@@ -97,23 +123,35 @@ export default function AboutUsPage() {
 
         <section className="about-intro" aria-labelledby="about-legacy-title">
           <div className="about-intro__grid">
-            <div className="about-gallery">
-              <img src={slides[slideIndex].src} alt={slides[slideIndex].alt} />
+            <div className="about-gallery about-image-slider">
+              <div ref={gallerySwiperRef} className="swiper about-swiper">
+                <div className="swiper-wrapper">
+                  {slides.map((slide) => (
+                    <div className="swiper-slide" key={slide.src}>
+                      <img
+                        className="about-slide-img"
+                        src={slide.src}
+                        alt={slide.alt}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
               <button
-                className="about-gallery__arrow about-gallery__arrow--previous"
+                ref={galleryPreviousRef}
+                className="about-slider-nav about-nav-prev"
                 type="button"
-                onClick={() => changeSlide(-1)}
-                aria-label="Show previous image"
+                aria-label="Previous slide"
               >
-                ‹
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
               </button>
               <button
-                className="about-gallery__arrow about-gallery__arrow--next"
+                ref={galleryNextRef}
+                className="about-slider-nav about-nav-next"
                 type="button"
-                onClick={() => changeSlide(1)}
-                aria-label="Show next image"
+                aria-label="Next slide"
               >
-                ›
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
               </button>
             </div>
             <div className="about-intro__copy">
