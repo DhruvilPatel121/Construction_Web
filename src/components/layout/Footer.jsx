@@ -21,7 +21,7 @@ const quickProjects = [
 ]
 
 const topNavFooter = [
-  { label: 'ABOUT US', href: '#about' },
+  { label: 'ABOUT US', href: '/about-us' },
   { label: 'MANAGEMENT', href: '#leadership' },
   { label: 'CLIENTS', href: '#clients' },
   { label: 'CAREER', href: `${siteUrl}/careers` },

@@ -9,6 +9,11 @@
 | DOC-001 | Create AI project documentation | High | Completed | `docs/*.md` | Six requested Markdown files created; existence to be verified after write |
 | UI-001 | Restore services section typography/card decoration/hover | High | Completed | `ServicesSection.jsx`, `SectionLabel.jsx`, `site.css`, `index.html` | Scoped Gantari/type/colors and red glow/icon hover; `npm.cmd run build` passed in current session |
 | UI-002 | Restore impact and awards screenshot sections | High | Completed | `ImpactSection.jsx`, `AwardsSection.jsx`, `site.css` | Scoped CSS prevents Tailwind-layer/reset conflict; build passed in current session |
+| UI-003 | Build routed About Us page | High | Completed | `AboutUsPage.jsx`, `App.jsx`, `Header.jsx`, `Footer.jsx`, `site.css` | Added the reference-ordered banner, gallery, Mission/Vision tabs, video/core-feature area, CTA, shared header/footer, responsive styling, and About navigation; `npm.cmd run build` passed and tabs/modal were interaction-checked on 2026-11-18 |
+| UI-004 | Correct About banner, mission list, and reference dimensions | High | Completed | `AboutUsPage.jsx`, `site.css` | Uses the verified official `bread3.jpg` banner source; mission items use explicit square list markers; banner height/type/breadcrumb geometry aligned to reference CSS; build passed on 2026-11-18 |
+| UI-005 | Align About core-feature container width | High | Completed | `site.css` | Adjusted only the core-feature desktop container from 1077px to the 1092px width measured from the supplied reference capture; build passed on 2026-11-18 |
+| UI-006 | Restore full About page size scale | High | Completed | `site.css` | Enlarged About intro, gallery, tabs, core-feature/video section, feature cards, CTA, and responsive size rules using verified reference stylesheet measurements; `npm.cmd run build` passed on 2026-11-18 |
+| UI-007 | Widen About page content containers | High | Completed | `site.css` | Reduced desktop side gutters to 32px/64px and aligned intro, CTA, and core-feature containers to a 1300px cap; tablet gutters use 20px; `npm.cmd run build` passed on 2026-11-18 |
 
 ## Pending / to verify
 
@@ -17,6 +22,7 @@
 | QA-001 | Full visual regression at approved viewport captures | High | Pending | affected sections/styles | Compare all sections/states to approved screenshots/reference | Not performed as a full-suite validation |
 | QA-002 | Accessibility audit | Medium | Pending | whole app | Keyboard, focus, contrast, drawer inert/focus behavior, video control | No automated audit configured |
 | QA-003 | Content encoding review | Medium | Pending | JSX text | Replace visibly malformed mojibake only with approved source content | Some source output displays malformed smart punctuation; status unverified in browser |
+| QA-004 | Visual reference comparison for dedicated About page | Medium | Pending | `AboutUsPage.jsx`, `site.css` | Compare desktop/tablet/mobile pixels against supplied captures, including the unavailable original dedicated video/poster asset | Structure and interactions checked locally; exact original image/video assets are not in the workspace |
 
 ## Reusable future-task template
 

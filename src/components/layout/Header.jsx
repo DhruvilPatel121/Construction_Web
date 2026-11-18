@@ -103,7 +103,7 @@ const drawerMenu = [
     id: "about",
     label: "About Us",
     children: [
-      { label: "About Company", href: "#about" },
+      { label: "About Company", href: "/about-us" },
       {
         label: "Achievements",
         href: `${siteUrl}/achievements`,
@@ -162,6 +162,8 @@ export default function Header() {
   const closeBtnRef = useRef(null);
   const toggleBtnRef = useRef(null);
   const scrolledRef = useRef(false);
+  const isAboutPage = window.location.pathname.replace(/\/+$/, "") === "/about-us";
+  const homeHref = isAboutPage ? "/" : "#home";
 
   // Header gets a shadow once the page has been scrolled
   useEffect(() => {
@@ -357,7 +359,7 @@ export default function Header() {
         <div className="site-container navigation-inner">
           <a
             className="brand-link"
-            href="#home"
+            href={homeHref}
             aria-label="Siddhi Constructions Home"
           >
             <img
@@ -369,18 +371,18 @@ export default function Header() {
           <nav className="main-navigation" aria-label="Main Navigation">
             <ul className="nav-menu">
               <li className="nav-item">
-                <a className="nav-link" href="#home">
+                <a className="nav-link" href={homeHref}>
                   Home
                 </a>
               </li>
 
               <li className="nav-item has-dropdown">
-                <a className="nav-link" href="#about">
+                <a className="nav-link" href="/about-us">
                   About Us <Chevron />
                 </a>
                 <ul className="nav-dropdown">
                   <li>
-                    <a href="#about">About Company</a>
+                    <a href="/about-us">About Company</a>
                   </li>
                   <li>
                     <a
