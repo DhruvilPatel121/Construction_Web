@@ -4,7 +4,7 @@ import brochureDownload from '../../assets/images/download.png'
 const siteUrl = 'https://www.siddhiconstructions.com'
 
 const usefulLinks = [
-  { label: 'Achievements', href: `${siteUrl}/achievements` },
+  { label: 'Achievements', href: '/achievements' },
   { label: 'Awards', href: '#awards' },
   { label: 'Technology', href: `${siteUrl}/technology` },
   { label: 'Quality Assurance', href: `${siteUrl}/quality-assurance` },

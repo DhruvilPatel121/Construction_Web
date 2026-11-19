@@ -106,8 +106,7 @@ const drawerMenu = [
       { label: "About Company", href: "/about-us" },
       {
         label: "Achievements",
-        href: `${siteUrl}/achievements`,
-        external: true,
+        href: "/achievements",
       },
       { label: "Awards", href: "#awards" },
       { label: "Technology", href: `${siteUrl}/technology`, external: true },
@@ -386,9 +385,7 @@ export default function Header() {
                   </li>
                   <li>
                     <a
-                      href={`${siteUrl}/achievements`}
-                      target="_blank"
-                      rel="noreferrer"
+                      href="/achievements"
                     >
                       Achievements
                     </a>
