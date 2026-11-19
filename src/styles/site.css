@@ -2585,19 +2585,20 @@ h6 {
   background: var(--color-bg-paper);
 }
 
-.about-page-banner {
+.page-banner {
   position: relative;
   height: 380px;
   max-width: 1820px;
   margin: 17px 32px 19px;
   overflow: hidden;
   border-radius: 10px;
-  background-image: var(--about-banner);
+  background-image: var(--page-banner-image);
   background-position: center;
   background-size: cover;
 }
 
-.about-page-banner__content {
+.page-banner__content {
+  --page-banner-watermark-side-space: 120px;
   position: relative;
   z-index: 1;
   display: flex;
@@ -2609,22 +2610,26 @@ h6 {
   justify-content: center;
 }
 
-.about-page-banner__watermark {
+.page-banner__watermark {
   position: absolute;
   top: 50%;
   left: 120px;
-  color: transparent;
-  font-family: var(--font-heading);
-  font-size: 180px;
-  font-weight: 800;
+  display: block;
+  box-sizing: content-box;
+  max-width: calc(100% - var(--page-banner-watermark-side-space) * 2);
+  padding-block: .55em;
+  color: #6b6b6b;
+  font-family: Inter, serif;
+  font-size: clamp(24px, var(--page-banner-watermark-size, 180px), 180px);
+  font-weight: 700;
   letter-spacing: -6px;
-  line-height: 1;
+  line-height: 26px;
   transform: translateY(-50%);
-  -webkit-text-stroke: 1px rgba(255, 255, 255, .11);
+  white-space: nowrap;
   pointer-events: none;
 }
 
-.about-page-banner h1 {
+.page-banner h1 {
   position: relative;
   z-index: 1;
   margin: 0;
@@ -2635,7 +2640,7 @@ h6 {
   line-height: 1.1;
 }
 
-.about-page-crumbs {
+.page-banner__crumbs {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2654,11 +2659,11 @@ h6 {
   text-transform: uppercase;
 }
 
-.about-page-crumbs a {
+.page-banner__crumbs a {
   color: inherit;
 }
 
-.about-page-crumbs a:hover {
+.page-banner__crumbs a:hover {
   color: var(--color-primary);
 }
 
@@ -3032,23 +3037,23 @@ h6 {
 }
 
 @media (max-width: 900px) {
-  .about-page-banner {
+  .page-banner {
     height: 320px;
     margin: 12px 20px 19px;
   }
 
-  .about-page-banner__content {
+  .page-banner__content {
+    --page-banner-watermark-side-space: 72px;
     padding-right: 35px;
     padding-left: 35px;
   }
 
-  .about-page-banner h1 {
+  .page-banner h1 {
     font-size: 44px;
   }
 
-  .about-page-banner__watermark {
-    left: 120px;
-    font-size: 120px;
+  .page-banner__watermark {
+    left: 72px;
   }
 
   .about-intro,
@@ -3138,27 +3143,28 @@ h6 {
 }
 
 @media (max-width: 600px) {
-  .about-page-banner {
+  .page-banner {
     height: 245px;
     margin: 0 0 19px;
     border-radius: 0;
   }
 
-  .about-page-banner__content {
+  .page-banner__content {
+    --page-banner-watermark-side-space: 24px;
     height: 245px;
     padding: 0 24px;
   }
 
-  .about-page-banner h1 {
+  .page-banner h1 {
     margin: 0;
     font-size: 32px;
   }
 
-  .about-page-banner__watermark {
-    display: none;
+  .page-banner__watermark {
+    left: 24px;
   }
 
-  .about-page-crumbs {
+  .page-banner__crumbs {
     left: 24px;
     min-height: 36px;
     padding: 0 15px;
@@ -3264,85 +3270,6 @@ h6 {
 /* Achievements page: isolated so the approved Home and About experiences remain unchanged. */
 .achievements-page {
   background: #f2efeb;
-}
-
-.achievements-hero {
-  position: relative;
-  height: 380px;
-  max-width: 1820px;
-  margin: 17px auto 19px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #19191b 0%, #19191b 34%, rgba(25, 25, 27, .82) 58%, rgba(25, 25, 27, .15) 100%), url('https://www.siddhiconstructions.com/assets/images/bread/bread3.jpg') center / cover;
-}
-
-.achievements-hero__city {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(14, 14, 16, .48), transparent 70%);
-  pointer-events: none;
-}
-
-.achievements-hero__content {
-  position: relative;
-  z-index: 1;
-  width: min(100% - 64px, 1015px);
-  height: 380px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-}
-
-.achievements-hero__watermark {
-  position: absolute;
-  top: 50%;
-  left: 105px;
-  transform: translateY(-50%);
-  color: transparent;
-  font-family: var(--font-heading);
-  font-size: clamp(86px, 12.6vw, 180px);
-  font-weight: 800;
-  letter-spacing: -6px;
-  line-height: 1;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, .1);
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-.achievements-hero h1 {
-  position: relative;
-  color: #fff;
-  font-size: 42px;
-  line-height: 1;
-}
-
-.achievements-crumbs {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  min-height: 40px;
-  padding: 0 22px;
-  align-items: center;
-  gap: 17px;
-  border-radius: 7px 7px 0 0;
-  background: #fff;
-  font-family: Inter, serif;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 26px;
-  color: #141416;
-  text-transform: uppercase;
-}
-
-.achievements-crumbs a {
-  color: inherit;
-}
-
-.achievements-crumbs a:hover {
-  color: var(--color-primary);
 }
 
 .achievements-rating {
@@ -3631,33 +3558,6 @@ h6 {
 }
 
 @media (max-width: 767px) {
-  .achievements-hero {
-    height: 245px;
-    min-height: 0;
-    margin: 0;
-    border-radius: 0;
-  }
-
-  .achievements-hero__content {
-    width: calc(100% - 48px);
-    height: 245px;
-  }
-
-  .achievements-hero__watermark {
-    left: 0;
-    font-size: 61px;
-    letter-spacing: -2px;
-  }
-
-  .achievements-hero h1 {
-    font-size: 34px;
-  }
-
-  .achievements-crumbs {
-    min-height: 36px;
-    padding: 0 15px;
-  }
-
   .achievements-rating {
     padding: 65px 0;
   }

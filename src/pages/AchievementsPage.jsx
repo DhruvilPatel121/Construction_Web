@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import Header from '../components/layout/Header.jsx'
 import Footer from '../components/layout/Footer.jsx'
 import BackToTopButton from '../components/common/BackToTopButton.jsx'
+import PageBanner from '../components/common/PageBanner.jsx'
 
 const assetBase = 'https://www.siddhiconstructions.com/assets/images'
+const achievementsBanner = `${assetBase}/bread/bread3.jpg`
 
 const monumentalProjects = [
   {
@@ -104,18 +106,16 @@ export default function AchievementsPage() {
     <div className="page-shell achievements-page">
       <Header />
       <main>
-        <section className="achievements-hero" aria-labelledby="achievements-title">
-          <div className="achievements-hero__city" aria-hidden="true" />
-          <div className="achievements-hero__content">
-            <span className="achievements-hero__watermark" aria-hidden="true">ACHIEVEMENTS</span>
-            <h1 id="achievements-title">Achievements</h1>
-            <nav className="achievements-crumbs" aria-label="Breadcrumb">
-              <a href="/">home</a>
-              <span aria-hidden="true">•</span>
-              <a href="/achievements" aria-current="page">Achievements</a>
-            </nav>
-          </div>
-        </section>
+        <PageBanner
+          title="Achievements"
+          watermark="ACHIEVEMENTS"
+          backgroundImage={achievementsBanner}
+          breadcrumbs={[
+            { label: 'Home', href: '/' },
+            { label: 'Achievements', href: '/achievements', current: true },
+          ]}
+          variant="achievements"
+        />
 
         <section className="achievements-rating" aria-labelledby="ratings-title">
           <div className="achievements-rating__grid">

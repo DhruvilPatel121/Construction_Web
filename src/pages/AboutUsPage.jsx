@@ -6,6 +6,7 @@ import "swiper/css/navigation";
 import Header from "../components/layout/Header.jsx";
 import Footer from "../components/layout/Footer.jsx";
 import BackToTopButton from "../components/common/BackToTopButton.jsx";
+import PageBanner from "../components/common/PageBanner.jsx";
 import slideOne from "../assets/images/slide5.jpeg";
 import slideTwo from "../assets/images/slide4.jpeg";
 import slideThree from "../assets/images/slide1.JPG";
@@ -103,23 +104,12 @@ export default function AboutUsPage() {
     <div className="page-shell about-page">
       <Header />
       <main>
-        <section
-          className="about-page-banner"
-          style={{ "--about-banner": `url(${aboutBanner})` }}
-          aria-labelledby="about-page-title"
-        >
-          <div className="about-page-banner__content">
-            <span className="about-page-banner__watermark" aria-hidden="true">
-              ABOUT US
-            </span>
-            <h1 id="about-page-title">About Us</h1>
-            <nav className="about-page-crumbs" aria-label="Breadcrumb">
-              <a href="/">Home</a>
-              <span aria-hidden="true">•</span>
-              <span>About Us</span>
-            </nav>
-          </div>
-        </section>
+        <PageBanner
+          title="About Us"
+          watermark="ABOUT US"
+          backgroundImage={aboutBanner}
+          breadcrumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]}
+        />
 
         <section className="about-intro" aria-labelledby="about-legacy-title">
           <div className="about-intro__grid">

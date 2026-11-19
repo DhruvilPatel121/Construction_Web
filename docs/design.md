@@ -36,6 +36,13 @@ The approved local code is the primary source of truth; the reference website is
 - Impact: four equal metric cells, two cells below 1199 px, one centered cell below 767 px.
 - Awards: 3 slides at 992+, 2 at 640+, and 1 below 640 px.
 
+## Inner-page banners
+
+- All inner pages use the shared [PageBanner.jsx](../src/components/common/PageBanner.jsx) component. It accepts `title`, optional `watermark`, `backgroundImage`, `breadcrumbs`, and an optional visual `variant`; page-specific banner markup and CSS are not permitted.
+- The approved banner geometry is retained: 380 px desktop height, 10 px radius, 17 px top and 19 px bottom spacing, and responsive 320 px/245 px tablet/mobile heights.
+- Inter is loaded once globally in [index.css](../src/index.css). Watermarks use Inter 700, `#6b6b6b`, and a base 180 px size with `26px` line-height.
+- The component measures the rendered watermark after font loading and on container resize. It uses 180 px when it fits and otherwise reduces to the largest safe size (down to 24 px on the narrowest screens). Its no-wrap width limit and padded line box keep full glyphs visible without clipping or wrapping.
+
 ## Components and interactions
 
 | Component | Verified style/interaction |
