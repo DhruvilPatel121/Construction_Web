@@ -3785,12 +3785,15 @@ h6 {
   object-position: center;
 }
 
+<<<<<<< HEAD
 @media (max-width: 1100px) {
   .awards-page__media {
     width: min(300px, 100%);
   }
 }
 
+=======
+>>>>>>> 2562ddf9ad316e87a3cbefe05ee67f23eaac7372
 @media (max-width: 900px) {
   .awards-page__list {
     width: min(100% - 40px, 860px);
@@ -3799,6 +3802,7 @@ h6 {
 
   .awards-page__card {
     padding: 32px;
+<<<<<<< HEAD
     grid-template-columns: 1fr;
     gap: 36px;
   }
@@ -3806,6 +3810,11 @@ h6 {
   .awards-page__card--image-left .awards-page__media {
     order: 0;
   }
+=======
+    grid-template-columns: minmax(0, 1fr) minmax(260px, .8fr);
+    gap: 36px;
+  }
+>>>>>>> 2562ddf9ad316e87a3cbefe05ee67f23eaac7372
 }
 
 @media (max-width: 700px) {
@@ -3841,4 +3850,8 @@ h6 {
   .siddhi-double-layer-wipe-reveal__layer {
     display: none;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2562ddf9ad316e87a3cbefe05ee67f23eaac7372

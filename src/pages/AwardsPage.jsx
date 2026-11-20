@@ -124,7 +124,11 @@ export default function AwardsPage() {
           title="Awards"
           watermark="AWARDS"
           backgroundImage={bannerImage}
+<<<<<<< HEAD
           breadcrumbs={[{ label: 'Home', href: '/home' }, { label: 'Awards', current: true }]}
+=======
+          breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Awards', current: true }]}
+>>>>>>> 2562ddf9ad316e87a3cbefe05ee67f23eaac7372
         />
 
         <section className="awards-page__list" aria-label="Siddhi Constructions awards">

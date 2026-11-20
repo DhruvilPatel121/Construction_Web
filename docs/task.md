@@ -19,8 +19,11 @@
 | UI-010 | Standardize inner-page banners and prevent watermark clipping | High | Completed | `PageBanner.jsx`, `AboutUsPage.jsx`, `AchievementsPage.jsx`, `site.css`, `index.css`, `index.html` | Replaced per-page banner selectors with the reusable component. The watermark uses one Inter import and measured responsive sizing so full names remain visible; `npm.cmd run build` passed on 2026-11-19. |
 | UI-011 | Build Awards page with reusable media wipe | High | Completed | `AwardsPage.jsx`, `SiddhiDoubleLayerWipeReveal.jsx`, `App.jsx`, `site.css` | Added the reference-led alternating award cards, shared banner/header/footer, and a media-only independently triggered red → black → image reveal. `npm.cmd run build` passed on 2026-11-20. |
 | UI-012 | Repair Awards navigation and complete verified award media | High | Completed | `Header.jsx`, `Footer.jsx`, `AwardsPage.jsx`, `site.css` | Header/mobile and footer Awards links now target `/awards`; the page renders all nine official award/certificate images, each in an equal 3:2, 10 px rounded media container. `npm.cmd run build` passed on 2026-11-20. |
+<<<<<<< HEAD
 | UI-013 | Centralize client-side routing | High | Completed | `main.jsx`, `App.jsx`, `routes/AppRoutes.jsx`, `Header.jsx`, `Footer.jsx`, `AboutUsPage.jsx` | One React Router instance now serves `/home`, `/about-us`, `/achievements`, and `/awards`; `/` and unmatched paths redirect to `/home`; internal navigation no longer appends hashes to inner-page URLs. Direct loads, refresh, back/forward, desktop header, footer, and mobile target URLs were checked; `npm.cmd run build` passed on 2026-11-20. |
 | UI-014 | Build Certificates page from approved Awards design | High | Completed | `CertificatesPage.jsx`, `AppRoutes.jsx` | Added `/certificates` with the three verified ISO records, same-side media/details layout, shared banner/chrome, Awards card styling, and existing image-only wipe. `npm.cmd run build` passed on 2026-11-20. |
+=======
+>>>>>>> 2562ddf9ad316e87a3cbefe05ee67f23eaac7372
 
 ## Pending / to verify
 
