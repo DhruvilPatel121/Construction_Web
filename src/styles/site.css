@@ -3653,3 +3653,182 @@ h6 {
     display: none;
   }
 }
+
+/* Shared media-only wipe. Keep this separate from card content so copy never animates. */
+.siddhi-double-layer-wipe-reveal {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.siddhi-double-layer-wipe-reveal__layer {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.siddhi-double-layer-wipe-reveal__layer--red {
+  z-index: 2;
+  background: var(--color-primary);
+}
+
+.siddhi-double-layer-wipe-reveal__layer--black {
+  background: #141416;
+}
+
+.siddhi-double-layer-wipe-reveal.is-revealed .siddhi-double-layer-wipe-reveal__layer--red {
+  animation: siddhi-red-wipe 1.35s ease-in-out forwards;
+}
+
+.siddhi-double-layer-wipe-reveal.is-revealed .siddhi-double-layer-wipe-reveal__layer--black {
+  animation: siddhi-black-wipe 1.35s 1.35s ease-in-out forwards;
+}
+
+@keyframes siddhi-red-wipe {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(101%);
+  }
+}
+
+@keyframes siddhi-black-wipe {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(101%);
+  }
+}
+
+/* Awards page follows the reference's alternating image/details cards. */
+.awards-page {
+  background: #f1eeea;
+}
+
+.awards-page__list {
+  display: grid;
+  width: min(100% - 64px, 1414px);
+  margin: 0 auto;
+  padding: 120px 0 96px;
+  gap: 42px;
+}
+
+.awards-page__card {
+  display: grid;
+  min-height: 356px;
+  padding: 40px;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 484px);
+  gap: 70px;
+  align-items: center;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.awards-page__card--image-left .awards-page__media {
+  order: -1;
+}
+
+.awards-page__details h2 {
+  margin: 0 0 29px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid #e6e1dc;
+  color: #090d14;
+  font-family: var(--font-main);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.awards-page__details dl,
+.awards-page__details dd {
+  margin: 0;
+}
+
+.awards-page__details dl {
+  display: grid;
+  gap: 18px;
+}
+
+.awards-page__details dt {
+  margin-bottom: 7px;
+  color: #090d14;
+  font-weight: 700;
+}
+
+.awards-page__details dd {
+  color: #5f6774;
+  font-size: 16px;
+  line-height: 1.62;
+}
+
+.awards-page__media {
+  width: 400px;
+  aspect-ratio: 1 / 1;
+  justify-self: center;
+  align-self: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.awards-page__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 900px) {
+  .awards-page__list {
+    width: min(100% - 40px, 860px);
+    padding: 80px 0;
+  }
+
+  .awards-page__card {
+    padding: 32px;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, .8fr);
+    gap: 36px;
+  }
+}
+
+@media (max-width: 700px) {
+  .awards-page__list {
+    width: min(100% - 32px, 600px);
+    padding: 60px 0;
+    gap: 24px;
+  }
+
+  .awards-page__card {
+    min-height: 0;
+    padding: 24px;
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .awards-page__card--image-left .awards-page__media {
+    order: 0;
+  }
+
+  .awards-page__details h2 {
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    font-size: 22px;
+  }
+
+  .awards-page__details dd {
+    font-size: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .siddhi-double-layer-wipe-reveal__layer {
+    display: none;
+  }
+}

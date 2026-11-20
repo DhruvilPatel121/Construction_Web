@@ -108,7 +108,7 @@ const drawerMenu = [
         label: "Achievements",
         href: "/achievements",
       },
-      { label: "Awards", href: "#awards" },
+      { label: "Awards", href: "/awards" },
       { label: "Technology", href: `${siteUrl}/technology`, external: true },
       {
         label: "Quality Assurance",
@@ -391,7 +391,7 @@ export default function Header() {
                     </a>
                   </li>
                   <li>
-                    <a href="#awards">Awards</a>
+                    <a href="/awards">Awards</a>
                   </li>
                   <li>
                     <a

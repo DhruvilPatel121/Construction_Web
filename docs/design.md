@@ -54,6 +54,7 @@ The approved local code is the primary source of truth; the reference website is
 | Carousel arrows | 50 px dark controls, `#34343a` 1 px border, 10 px radius; awards hover transitions red background/border over 0.3 s |
 | Progress control | fixed 48 px white circular control, red SVG path and shadow; opacity/translation transition 250 ms |
 | Reveal | 750 ms `cubic-bezier(0.16,1,0.3,1)` opacity/translate transition; disabled for reduced motion |
+| SiddhiDoubleLayerWipeReveal | Media-only red → black → image reveal. Each instance observes independently at a 0.35 threshold, runs once per visit, then uses a 1.35 s red wipe followed by the same black wipe after a 1.35 s delay. Never wrap text/details with it; reduced motion renders media immediately. |
 
 Images use `object-fit: cover` where cropped (hero, slide/card media) and `contain` for logos/icons. Do not change aspect ratios/cropping without comparison evidence.
 
