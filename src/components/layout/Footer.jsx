@@ -1,11 +1,12 @@
 import companyLogo from '../../assets/images/company-logo.png'
 import brochureDownload from '../../assets/images/download.png'
+import { Link } from 'react-router'
 
 const siteUrl = 'https://www.siddhiconstructions.com'
 
 const usefulLinks = [
   { label: 'Achievements', href: '/achievements' },
-  { label: 'Awards', href: '#awards' },
+  { label: 'Awards', href: '/awards' },
   { label: 'Technology', href: `${siteUrl}/technology` },
   { label: 'Quality Assurance', href: `${siteUrl}/quality-assurance` },
   { label: 'Equipped', href: `${siteUrl}/equipped` },
@@ -22,11 +23,11 @@ const quickProjects = [
 
 const topNavFooter = [
   { label: 'ABOUT US', href: '/about-us' },
-  { label: 'MANAGEMENT', href: '#leadership' },
-  { label: 'CLIENTS', href: '#clients' },
+  { label: 'MANAGEMENT', href: '/home#leadership' },
+  { label: 'CLIENTS', href: '/home#clients' },
   { label: 'CAREER', href: `${siteUrl}/careers` },
-  { label: 'CONTACT', href: '#contact' },
-  { label: 'VIDEO', href: '#home' },
+  { label: 'CONTACT', href: '/home#contact' },
+  { label: 'VIDEO', href: '/home' },
 ]
 
 export default function Footer() {
@@ -38,12 +39,13 @@ export default function Footer() {
           <ul className="footer-top-nav-list">
             {topNavFooter.map((item) => (
               <li key={item.label}>
-                <a
-                  href={item.href}
-                  {...(item.href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
-                >
-                  {item.label}
-                </a>
+                {item.href.startsWith('http') ? (
+                  <a href={item.href} target="_blank" rel="noreferrer">
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link to={item.href}>{item.label}</Link>
+                )}
               </li>
             ))}
           </ul>
@@ -54,9 +56,9 @@ export default function Footer() {
       <div className="site-container footer-main-content">
         {/* Column 1: Brand & Bio */}
         <div className="footer-col footer-col-brand">
-          <a href="#home" className="footer-logo-link" aria-label="Siddhi Constructions Home">
+          <Link to="/home" className="footer-logo-link" aria-label="Siddhi Constructions Home">
             <img src={companyLogo} alt="Siddhi Constructions" className="footer-logo" />
-          </a>
+          </Link>
           <p className="footer-bio">
             Established in 1986, Siddhi Constructions is a government-approved civil contractor in Surat with over 39 years of experience delivering excellence in industrial, commercial, and residential infrastructure.
           </p>
@@ -103,12 +105,15 @@ export default function Footer() {
           <ul className="footer-link-list">
             {usefulLinks.map((link) => (
               <li key={link.label}>
-                <a
-                  href={link.href}
-                  {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noreferrer' } : {})}
-                >
-                  <span className="arrow">→</span> {link.label}
-                </a>
+                {link.href.startsWith('http') ? (
+                  <a href={link.href} target="_blank" rel="noreferrer">
+                    <span className="arrow">→</span> {link.label}
+                  </a>
+                ) : (
+                  <Link to={link.href}>
+                    <span className="arrow">→</span> {link.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

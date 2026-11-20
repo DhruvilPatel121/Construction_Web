@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router";
 import Swiper from "swiper";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
@@ -108,7 +109,7 @@ export default function AboutUsPage() {
           title="About Us"
           watermark="ABOUT US"
           backgroundImage={aboutBanner}
-          breadcrumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]}
+          breadcrumbs={[{ label: "Home", href: "/home" }, { label: "About Us" }]}
         />
 
         <section className="about-intro" aria-labelledby="about-legacy-title">
@@ -302,9 +303,9 @@ export default function AboutUsPage() {
               dream residential project in Surat, partner with the experts who
               have been building trust since 1986.
             </p>
-            <a className="btn-primary about-cta__button" href="/#contact">
+            <Link className="btn-primary about-cta__button" to="/home#contact">
               Make An Appointment
-            </a>
+            </Link>
           </div>
         </section>
       </main>

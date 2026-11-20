@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link, NavLink } from "react-router";
 import companyLogo from "../../assets/images/company-logo.png";
 import barIcon from "../../assets/images/bar.svg";
 import skylineIcon from "../../assets/images/skyline.png";
@@ -8,7 +9,7 @@ import landIcon from "../../assets/images/land.png";
 import megaphoneIcon from "../../assets/images/megaphone.png";
 import bannerThumb from "../../assets/images/04.jpg";
 
-const siteUrl = "#";
+const siteUrl = "https://www.siddhiconstructions.com";
 
 const megaMenuProjects = [
   {
@@ -98,7 +99,7 @@ const socialLinks = [
 
 // Mobile drawer structure, taken from the reference recording
 const drawerMenu = [
-  { id: "home", label: "Home", href: "#home" },
+  { id: "home", label: "Home", href: "/home" },
   {
     id: "about",
     label: "About Us",
@@ -108,7 +109,8 @@ const drawerMenu = [
         label: "Achievements",
         href: "/achievements",
       },
-      { label: "Awards", href: "#awards" },
+      { label: "Awards", href: "/awards" },
+      { label: "Certificates", href: "/certificates" },
       { label: "Technology", href: `${siteUrl}/technology`, external: true },
       {
         label: "Quality Assurance",
@@ -122,7 +124,7 @@ const drawerMenu = [
     id: "management",
     label: "Management",
     children: [
-      { label: "Management", href: "#leadership" },
+      { label: "Management", href: "/home#leadership" },
       {
         label: "Organization Chart",
         href: `${siteUrl}/organization-chart`,
@@ -151,7 +153,7 @@ const drawerMenu = [
   },
   { id: "career", label: "Career", href: `${siteUrl}/careers`, external: true },
   { id: "video", label: "Video", href: `${siteUrl}/video`, external: true },
-  { id: "contact", label: "Contact Us", href: "#contact" },
+  { id: "contact", label: "Contact Us", href: "/home#contact" },
 ];
 
 export default function Header() {
@@ -161,9 +163,6 @@ export default function Header() {
   const closeBtnRef = useRef(null);
   const toggleBtnRef = useRef(null);
   const scrolledRef = useRef(false);
-  const isAboutPage = window.location.pathname.replace(/\/+$/, "") === "/about-us";
-  const homeHref = isAboutPage ? "/" : "#home";
-
   // Header gets a shadow once the page has been scrolled
   useEffect(() => {
     let frameId = 0;
@@ -236,15 +235,15 @@ export default function Header() {
           <div className="contact-details">
             <div className="contact-item">
               <svg
-                class="contact-icon"
+                className="contact-icon"
                 width="13"
                 height="13"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
               </svg>
@@ -356,51 +355,43 @@ export default function Header() {
         id="home"
       >
         <div className="site-container navigation-inner">
-          <a
+          <Link
             className="brand-link"
-            href={homeHref}
+            to="/home"
             aria-label="Siddhi Constructions Home"
           >
             <img
               src={companyLogo}
               alt="Siddhi Constructions - Excellence in Civil Engineering"
             />
-          </a>
+          </Link>
 
           <nav className="main-navigation" aria-label="Main Navigation">
             <ul className="nav-menu">
               <li className="nav-item">
-                <a className="nav-link" href={homeHref}>
+                <NavLink className="nav-link" to="/home">
                   Home
-                </a>
+                </NavLink>
               </li>
 
               <li className="nav-item has-dropdown">
-                <a className="nav-link" href="/about-us">
+                <NavLink className="nav-link" to="/about-us">
                   About Us <Chevron />
-                </a>
+                </NavLink>
                 <ul className="nav-dropdown">
                   <li>
-                    <a href="/about-us">About Company</a>
+                    <Link to="/about-us">About Company</Link>
                   </li>
                   <li>
-                    <a
-                      href="/achievements"
-                    >
+                    <Link to="/achievements">
                       Achievements
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#awards">Awards</a>
+                    <Link to="/awards">Awards</Link>
                   </li>
                   <li>
-                    <a
-                      href={`${siteUrl}/certificate`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Certificates
-                    </a>
+                    <Link to="/certificates">Certificates</Link>
                   </li>
                   <li>
                     <a
@@ -433,12 +424,12 @@ export default function Header() {
               </li>
 
               <li className="nav-item has-dropdown">
-                <a className="nav-link" href="#leadership">
+                <Link className="nav-link" to="/home#leadership">
                   Management <Chevron />
-                </a>
+                </Link>
                 <ul className="nav-dropdown">
                   <li>
-                    <a href="#leadership">Management</a>
+                    <Link to="/home#leadership">Management</Link>
                   </li>
                   <li>
                     <a
@@ -454,9 +445,9 @@ export default function Header() {
 
               {/* Mega Menu for Projects */}
               <li className="nav-item has-mega-menu">
-                <a className="nav-link" href="#projects">
+                <Link className="nav-link" to="/home#projects">
                   Projects <Chevron />
-                </a>
+                </Link>
                 <div className="mega-menu-wrapper">
                   <div className="mega-menu-inner">
                     <div className="mega-menu-col">
@@ -499,8 +490,8 @@ export default function Header() {
                       ))}
 
                       {/* Start Your Project Right CTA Card */}
-                      <a
-                        href="#contact"
+                      <Link
+                        to="/home#contact"
                         className="single-service-menu free-consultation-card"
                       >
                         <div className="menu-info">
@@ -512,7 +503,7 @@ export default function Header() {
                             to turn your vision into a successful reality.
                           </p>
                         </div>
-                      </a>
+                      </Link>
                     </div>
 
                     <div className="mega-menu-thumb-col">
@@ -528,9 +519,9 @@ export default function Header() {
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="#clients">
+                <Link className="nav-link" to="/home#clients">
                   Clients
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item">
@@ -545,9 +536,9 @@ export default function Header() {
               </li>
 
               <li className="nav-item has-dropdown">
-                <a className="nav-link" href="#awards">
+                <Link className="nav-link" to="/home#awards">
                   Media <Chevron />
-                </a>
+                </Link>
                 <ul className="nav-dropdown">
                   <li>
                     <a
@@ -573,9 +564,9 @@ export default function Header() {
           </nav>
 
           <div className="header-end">
-            <a className="btn-primary contact-btn" href="#contact">
+            <Link className="btn-primary contact-btn" to="/home#contact">
               Contact Us
-            </a>
+            </Link>
             <button
               type="button"
               ref={toggleBtnRef}
@@ -634,16 +625,25 @@ export default function Header() {
                 if (!item.children) {
                   return (
                     <li key={item.id}>
-                      <a
-                        href={item.href}
-                        className="mobile-link"
-                        onClick={closeDrawer}
-                        {...(item.external
-                          ? { target: "_blank", rel: "noreferrer" }
-                          : {})}
-                      >
-                        {item.label}
-                      </a>
+                      {item.external ? (
+                        <a
+                          href={item.href}
+                          className="mobile-link"
+                          onClick={closeDrawer}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {item.label}
+                        </a>
+                      ) : (
+                        <Link
+                          to={item.href}
+                          className="mobile-link"
+                          onClick={closeDrawer}
+                        >
+                          {item.label}
+                        </Link>
+                      )}
                     </li>
                   );
                 }
@@ -673,15 +673,20 @@ export default function Header() {
                       <ul className="mobile-submenu-links" inert={!isOpen}>
                         {item.children.map((child) => (
                           <li key={child.label}>
-                            <a
-                              href={child.href}
-                              onClick={closeDrawer}
-                              {...(child.external
-                                ? { target: "_blank", rel: "noreferrer" }
-                                : {})}
-                            >
-                              {child.label}
-                            </a>
+                            {child.external ? (
+                              <a
+                                href={child.href}
+                                onClick={closeDrawer}
+                                target="_blank"
+                                rel="noreferrer"
+                              >
+                                {child.label}
+                              </a>
+                            ) : (
+                              <Link to={child.href} onClick={closeDrawer}>
+                                {child.label}
+                              </Link>
+                            )}
                           </li>
                         ))}
                       </ul>

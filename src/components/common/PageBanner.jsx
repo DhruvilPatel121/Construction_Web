@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react'
+import { Link } from 'react-router'
 
 const MAX_WATERMARK_SIZE = 180
 const MIN_WATERMARK_SIZE = 24
@@ -62,9 +63,9 @@ export default function PageBanner({
             <span className="page-banner__crumb" key={`${crumb.label}-${index}`}>
               {index > 0 && <span aria-hidden="true">•</span>}
               {crumb.href ? (
-                <a href={crumb.href} aria-current={crumb.current ? 'page' : undefined}>
+                <Link to={crumb.href} aria-current={crumb.current ? 'page' : undefined}>
                   {crumb.label}
-                </a>
+                </Link>
               ) : (
                 <span>{crumb.label}</span>
               )}

@@ -111,7 +111,7 @@ export default function AchievementsPage() {
           watermark="ACHIEVEMENTS"
           backgroundImage={achievementsBanner}
           breadcrumbs={[
-            { label: 'Home', href: '/' },
+            { label: 'Home', href: '/home' },
             { label: 'Achievements', href: '/achievements', current: true },
           ]}
           variant="achievements"

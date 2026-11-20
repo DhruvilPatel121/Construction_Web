@@ -5,7 +5,6 @@ import formatNumber from "../../utils/formatNumber.js";
 const FASTEST_ROLL_DURATION = 550;
 
 function RollingDigit({ digit, place, hasStarted, lineHeight }) {
-  // A zero completes a full wheel revolution so it visibly rolls before landing.
   const steps = Number(digit) === 0 ? 10 : Number(digit);
   const reel = Array.from({ length: steps + 1 }, (_, index) => index % 10);
   const duration = steps === 10 ? 1000 : FASTEST_ROLL_DURATION * (place + 1);
