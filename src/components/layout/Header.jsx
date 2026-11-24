@@ -114,8 +114,7 @@ const drawerMenu = [
       { label: "Technology", href: "/technology" },
       {
         label: "Quality Assurance",
-        href: `${siteUrl}/quality-assurance`,
-        external: true,
+        href: "/quality-assurance",
       },
       { label: "Equipped", href: `${siteUrl}/equipped`, external: true },
     ],
@@ -397,13 +396,7 @@ export default function Header() {
                     <Link to="/technology">Technology</Link>
                   </li>
                   <li>
-                    <a
-                      href={`${siteUrl}/quality-assurance`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Quality Assurance
-                    </a>
+                    <Link to="/quality-assurance">Quality Assurance</Link>
                   </li>
                   <li>
                     <a

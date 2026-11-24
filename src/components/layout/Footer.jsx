@@ -8,7 +8,7 @@ const usefulLinks = [
   { label: 'Achievements', href: '/achievements' },
   { label: 'Awards', href: '/awards' },
   { label: 'Technology', href: '/technology' },
-  { label: 'Quality Assurance', href: `${siteUrl}/quality-assurance` },
+  { label: 'Quality Assurance', href: '/quality-assurance' },
   { label: 'Equipped', href: `${siteUrl}/equipped` },
   { label: 'Apply for Career', href: `${siteUrl}/apply-for-career` },
 ]
