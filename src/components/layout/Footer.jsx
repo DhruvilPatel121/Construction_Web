@@ -7,7 +7,7 @@ const siteUrl = 'https://www.siddhiconstructions.com'
 const usefulLinks = [
   { label: 'Achievements', href: '/achievements' },
   { label: 'Awards', href: '/awards' },
-  { label: 'Technology', href: `${siteUrl}/technology` },
+  { label: 'Technology', href: '/technology' },
   { label: 'Quality Assurance', href: `${siteUrl}/quality-assurance` },
   { label: 'Equipped', href: `${siteUrl}/equipped` },
   { label: 'Apply for Career', href: `${siteUrl}/apply-for-career` },

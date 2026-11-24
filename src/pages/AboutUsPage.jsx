@@ -80,7 +80,7 @@ export default function AboutUsPage() {
     });
 
     return () => swiper.destroy(true, true);
-  }, []);
+  },[]);
 
   useEffect(() => {
     if (!isVideoOpen) return undefined;
@@ -109,7 +109,10 @@ export default function AboutUsPage() {
           title="About Us"
           watermark="ABOUT US"
           backgroundImage={aboutBanner}
-          breadcrumbs={[{ label: "Home", href: "/home" }, { label: "About Us" }]}
+          breadcrumbs={[
+            { label: "Home", href: "/home" },
+            { label: "About Us" },
+          ]}
         />
 
         <section className="about-intro" aria-labelledby="about-legacy-title">
@@ -134,7 +137,19 @@ export default function AboutUsPage() {
                 type="button"
                 aria-label="Previous slide"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M15 5l-7 7 7 7" />
+                </svg>
               </button>
               <button
                 ref={galleryNextRef}
@@ -142,7 +157,19 @@ export default function AboutUsPage() {
                 type="button"
                 aria-label="Next slide"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
               </button>
             </div>
             <div className="about-intro__copy">
@@ -279,10 +306,7 @@ export default function AboutUsPage() {
               </h2>
               <div className="about-feature-grid">
                 {features.map((feature, index) => (
-                  <article
-                    className={`about-feature-card`}
-                    key={feature.label}
-                  >
+                  <article className={`about-feature-card`} key={feature.label}>
                     <img src={feature.icon} alt="" />
                     <p>{feature.label}</p>
                   </article>

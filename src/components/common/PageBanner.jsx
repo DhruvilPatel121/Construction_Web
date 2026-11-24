@@ -20,27 +20,47 @@ export default function PageBanner({
     const watermarkElement = watermarkRef.current
     if (!content || !watermarkElement) return undefined
 
+    let isActive = true
+
     const updateWatermarkSize = () => {
       const sideSpace = Number.parseFloat(
         window.getComputedStyle(content).getPropertyValue('--page-banner-watermark-side-space'),
       ) || 24
       const availableWidth = Math.max(0, content.clientWidth - sideSpace * 2)
-      const currentSize = Number.parseFloat(window.getComputedStyle(watermarkElement).fontSize)
-      const fullSizeWidth = watermarkElement.scrollWidth * (MAX_WATERMARK_SIZE / currentSize)
+      const styles = window.getComputedStyle(watermarkElement)
+      const canvasContext = document.createElement('canvas').getContext('2d')
+      const letterSpacing = Number.parseFloat(styles.letterSpacing) || 0
+
+      if (canvasContext) {
+        canvasContext.font = `${styles.fontStyle} ${styles.fontWeight} ${MAX_WATERMARK_SIZE}px ${styles.fontFamily}`
+      }
+
+      const fullSizeWidth = canvasContext
+        ? canvasContext.measureText(watermark).width + letterSpacing * Math.max(0, watermark.length - 1)
+        : watermarkElement.scrollWidth
       const nextSize = fullSizeWidth > availableWidth
         ? Math.max(MIN_WATERMARK_SIZE, Math.floor((availableWidth / fullSizeWidth) * MAX_WATERMARK_SIZE))
         : MAX_WATERMARK_SIZE
 
-      setWatermarkSize(nextSize)
+      if (isActive) {
+        setWatermarkSize((currentSize) => (
+          currentSize === nextSize ? currentSize : nextSize
+        ))
+      }
     }
 
     updateWatermarkSize()
     const resizeObserver = new ResizeObserver(updateWatermarkSize)
     resizeObserver.observe(content)
-    document.fonts?.ready.then(updateWatermarkSize)
+    document.fonts?.ready.then(() => {
+      if (isActive) updateWatermarkSize()
+    })
 
-    return () => resizeObserver.disconnect()
-  }, [watermark, watermarkSize])
+    return () => {
+      isActive = false
+      resizeObserver.disconnect()
+    }
+  }, [watermark])
 
   return (
     <section
