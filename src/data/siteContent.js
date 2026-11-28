@@ -51,6 +51,18 @@ export const pageBanners = {
     backgroundImage: `${assetBase}/bread/bread1.jpg`,
     breadcrumbs: [{ label: 'Home', href: '/home' }, { label: 'Equipped', href: '/equipped', current: true }],
   },
+  management: {
+    title: 'Management',
+    watermark: 'MANAGEMENT',
+    backgroundImage: `${assetBase}/bread/bread3.jpg`,
+    breadcrumbs: [{ label: 'Home', href: '/home' }, { label: 'Management', href: '/management', current: true }],
+  },
+  organizationChart: {
+    title: 'Our Structure',
+    watermark: 'CHART',
+    backgroundImage: `${assetBase}/bread/bread3.jpg`,
+    breadcrumbs: [{ label: 'Home', href: '/home' }, { label: 'Organizational Chart', href: '/organization-chart', current: true }],
+  },
 }
 
 export const headerMegaMenuProjects = [
@@ -137,7 +149,7 @@ export const footerNavigation = {
   ],
   top: [
     { label: 'ABOUT US', href: '/about-us' },
-    { label: 'MANAGEMENT', href: '/home#leadership' },
+    { label: 'MANAGEMENT', href: '/management' },
     { label: 'CLIENTS', href: '/home#clients' },
     { label: 'CAREER', href: `${siteUrl}/careers` },
     { label: 'CONTACT', href: '/home#contact' },

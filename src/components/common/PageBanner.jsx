@@ -78,7 +78,8 @@ export default function PageBanner({
   }, [resolvedWatermark])
 
   return (
-    <section
+    <div className="page-banner-area">
+      <section
       className={`page-banner${resolvedVariant ? ` page-banner--${resolvedVariant}` : ''}`}
       style={{ '--page-banner-image': `url(${resolvedBackgroundImage})` }}
       aria-labelledby="page-banner-title"
@@ -108,6 +109,7 @@ export default function PageBanner({
           ))}
         </nav>
       </div>
-    </section>
+      </section>
+    </div>
   )
 }

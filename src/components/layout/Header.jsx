@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, NavLink } from "react-router";
+import { Link, NavLink, useLocation } from "react-router";
 import companyLogo from "../../assets/images/company-logo.png";
 import barIcon from "../../assets/images/bar.svg";
 import skylineIcon from "../../assets/images/skyline.png";
@@ -123,11 +123,10 @@ const drawerMenu = [
     id: "management",
     label: "Management",
     children: [
-      { label: "Management", href: "/home#leadership" },
+      { label: "Management", href: "/management" },
       {
         label: "Organization Chart",
-        href: `${siteUrl}/organization-chart`,
-        external: true,
+        href: "/organization-chart",
       },
     ],
   },
@@ -156,6 +155,7 @@ const drawerMenu = [
 ];
 
 export default function Header() {
+  const { pathname } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
   const [scrolled, setScrolled] = useState(false);
@@ -379,51 +379,47 @@ export default function Header() {
                 </NavLink>
                 <ul className="nav-dropdown">
                   <li>
-                    <Link to="/about-us">About Company</Link>
+                    <NavLink to="/about-us">About Company</NavLink>
                   </li>
                   <li>
-                    <Link to="/achievements">
+                    <NavLink to="/achievements">
                       Achievements
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link to="/awards">Awards</Link>
+                    <NavLink to="/awards">Awards</NavLink>
                   </li>
                   <li>
-                    <Link to="/certificates">Certificates</Link>
+                    <NavLink to="/certificates">Certificates</NavLink>
                   </li>
                   <li>
-                    <Link to="/technology">Technology</Link>
+                    <NavLink to="/technology">Technology</NavLink>
                   </li>
                   <li>
-                    <Link to="/quality-assurance">Quality Assurance</Link>
+                    <NavLink to="/quality-assurance">Quality Assurance</NavLink>
                   </li>
                   <li>
-                    <Link
+                    <NavLink
                       to="/equipped"
                     >
                       Equipped
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
               </li>
 
-              <li className="nav-item has-dropdown">
-                <Link className="nav-link" to="/home#leadership">
+              <li className={`nav-item has-dropdown management-nav-item${pathname === "/management" || pathname === "/organization-chart" ? " is-current" : ""}`}>
+                <NavLink className="nav-link" to="/management">
                   Management <Chevron />
-                </Link>
+                </NavLink>
                 <ul className="nav-dropdown">
                   <li>
-                    <Link to="/home#leadership">Management</Link>
+                    <NavLink to="/management">Management</NavLink>
                   </li>
                   <li>
-                    <a
-                      href={`${siteUrl}/organization-chart`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
+                    <NavLink to="/organization-chart">
                       Organization Chart
-                    </a>
+                    </NavLink>
                   </li>
                 </ul>
               </li>

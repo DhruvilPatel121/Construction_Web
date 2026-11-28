@@ -5,6 +5,8 @@ import AwardsPage from "../pages/AwardsPage.jsx";
 import CertificatesPage from "../pages/CertificatesPage.jsx";
 import EquippedPage from "../pages/EquippedPage.jsx";
 import HomePage from "../pages/HomePage.jsx";
+import ManagementPage from "../pages/ManagementPage.jsx";
+import OrganizationChartPage from "../pages/OrganizationChartPage.jsx";
 import QualityAssurancePage from "../pages/QualityAssurancePage.jsx";
 import TechnologyPage from "../pages/TechnologyPage.jsx";
 
@@ -13,6 +15,8 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/" element={<Navigate to="/home" replace />} />
       <Route path="/home" element={<HomePage />} />
+      <Route path="/management" element={<ManagementPage />} />
+      <Route path="/organization-chart" element={<OrganizationChartPage />} />
       <Route path="/equipped" element={<EquippedPage />} />
       <Route path="/about-us" element={<AboutUsPage />} />
       <Route path="/achievements" element={<AchievementsPage />} />
