@@ -21,9 +21,6 @@ import featureThree from "../assets/images/13.svg";
 import featureFour from "../assets/images/14.svg";
 import aboutVideo from "../assets/videos/bann.mp4";
 
-const aboutBanner =
-  "https://www.siddhiconstructions.com/assets/images/bread/bread3.jpg";
-
 const slides = [
   { src: slideOne, alt: "Siddhi Constructions project inauguration" },
   { src: slideTwo, alt: "Siddhi Constructions award ceremony" },
@@ -105,15 +102,7 @@ export default function AboutUsPage() {
     <div className="page-shell about-page">
       <Header />
       <main>
-        <PageBanner
-          title="About Us"
-          watermark="ABOUT US"
-          backgroundImage={aboutBanner}
-          breadcrumbs={[
-            { label: "Home", href: "/home" },
-            { label: "About Us" },
-          ]}
-        />
+        <PageBanner page="aboutUs" />
 
         <section className="about-intro" aria-labelledby="about-legacy-title">
           <div className="about-intro__grid">

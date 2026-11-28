@@ -1,34 +1,7 @@
 import companyLogo from '../../assets/images/company-logo.png'
 import brochureDownload from '../../assets/images/download.png'
 import { Link } from 'react-router'
-
-const siteUrl = 'https://www.siddhiconstructions.com'
-
-const usefulLinks = [
-  { label: 'Achievements', href: '/achievements' },
-  { label: 'Awards', href: '/awards' },
-  { label: 'Technology', href: '/technology' },
-  { label: 'Quality Assurance', href: '/quality-assurance' },
-  { label: 'Equipped', href: `${siteUrl}/equipped` },
-  { label: 'Apply for Career', href: `${siteUrl}/apply-for-career` },
-]
-
-const quickProjects = [
-  { label: 'Industrial Construction', href: `${siteUrl}/industrial-construction` },
-  { label: 'Commercial & Institutional', href: `${siteUrl}/commercial-institutional` },
-  { label: 'Residential', href: `${siteUrl}/residential` },
-  { label: 'Ongoing', href: `${siteUrl}/ongoing` },
-  { label: 'Developer', href: `${siteUrl}/developer` },
-]
-
-const topNavFooter = [
-  { label: 'ABOUT US', href: '/about-us' },
-  { label: 'MANAGEMENT', href: '/home#leadership' },
-  { label: 'CLIENTS', href: '/home#clients' },
-  { label: 'CAREER', href: `${siteUrl}/careers` },
-  { label: 'CONTACT', href: '/home#contact' },
-  { label: 'VIDEO', href: '/home' },
-]
+import { footerNavigation, siteUrl } from '../../data/siteContent.js'
 
 export default function Footer() {
   return (
@@ -37,7 +10,7 @@ export default function Footer() {
       <div className="footer-top-nav-bar">
         <div className="site-container">
           <ul className="footer-top-nav-list">
-            {topNavFooter.map((item) => (
+            {footerNavigation.top.map((item) => (
               <li key={item.label}>
                 {item.href.startsWith('http') ? (
                   <a href={item.href} target="_blank" rel="noreferrer">
@@ -103,7 +76,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4 className="footer-col-title">Useful Links</h4>
           <ul className="footer-link-list">
-            {usefulLinks.map((link) => (
+            {footerNavigation.usefulLinks.map((link) => (
               <li key={link.label}>
                 {link.href.startsWith('http') ? (
                   <a href={link.href} target="_blank" rel="noreferrer">
@@ -123,7 +96,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4 className="footer-col-title">Quick Projects</h4>
           <ul className="footer-link-list">
-            {quickProjects.map((link) => (
+            {footerNavigation.projects.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}

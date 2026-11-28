@@ -3,7 +3,6 @@ import Footer from '../components/layout/Footer.jsx'
 import BackToTopButton from '../components/common/BackToTopButton.jsx'
 import PageBanner from '../components/common/PageBanner.jsx'
 
-const bannerImage = 'https://www.siddhiconstructions.com/assets/images/bread/bread3.jpg'
 
 const informationTools = [
   {
@@ -95,15 +94,7 @@ export default function TechnologyPage() {
     <div className="page-shell technology-page">
       <Header />
       <main>
-        <PageBanner
-          title="Technology"
-          watermark="TECHNOLOGY"
-          backgroundImage={bannerImage}
-          breadcrumbs={[
-            { label: 'Home', href: '/home' },
-            { label: 'Technology', href: '/technology', current: true },
-          ]}
-        />
+        <PageBanner page="technology" />
 
         <div className="technology-page__content">
           <TechnologySection

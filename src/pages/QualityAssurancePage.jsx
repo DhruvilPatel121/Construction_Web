@@ -44,15 +44,7 @@ export default function QualityAssurancePage() {
     <div className="page-shell quality-assurance-page">
       <Header />
       <main>
-        <PageBanner
-          title="Quality"
-          watermark="QUALITY"
-          backgroundImage={`${assetBase}/bread/bread1.jpg`}
-          breadcrumbs={[
-            { label: 'Home', href: '/home' },
-            { label: 'Quality', current: true },
-          ]}
-        />
+        <PageBanner page="quality" />
 
         <section className="quality-assurance-page__content" aria-labelledby="quality-assurance-title">
           <h2 id="quality-assurance-title">Quality Assurance</h2>

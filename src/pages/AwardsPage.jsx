@@ -7,7 +7,6 @@ import awardGuardian from '../assets/images/bhupendra.jpeg'
 import awardLegends from '../assets/images/award-gujarat.jpg'
 import awardGreenBuilding from '../assets/images/award-igbc.jpg'
 
-const bannerImage = 'https://www.siddhiconstructions.com/assets/images/bread/bread3.jpg'
 const officialAssetBase = 'https://www.siddhiconstructions.com/assets/images'
 
 const awards = [
@@ -120,12 +119,7 @@ export default function AwardsPage() {
     <div className="page-shell awards-page">
       <Header />
       <main>
-        <PageBanner
-          title="Awards"
-          watermark="AWARDS"
-          backgroundImage={bannerImage}
-          breadcrumbs={[{ label: 'Home', href: '/home' }, { label: 'Awards', current: true }]}
-        />
+        <PageBanner page="awards" />
 
         <section className="awards-page__list" aria-label="Siddhi Constructions awards">
           {awards.map((award) => (

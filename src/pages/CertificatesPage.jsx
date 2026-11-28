@@ -4,7 +4,6 @@ import BackToTopButton from '../components/common/BackToTopButton.jsx'
 import PageBanner from '../components/common/PageBanner.jsx'
 import SiddhiDoubleLayerWipeReveal from '../components/animations/SiddhiDoubleLayerWipeReveal.jsx'
 
-const bannerImage = 'https://www.siddhiconstructions.com/assets/images/bread/bread3.jpg'
 const certificateAssetBase = 'https://www.siddhiconstructions.com/assets/images/certificates'
 
 const certificates = [
@@ -54,12 +53,7 @@ export default function CertificatesPage() {
     <div className="page-shell awards-page certificates-page">
       <Header />
       <main>
-        <PageBanner
-          title="Certificates"
-          watermark="CERTIFICATES"
-          backgroundImage={bannerImage}
-          breadcrumbs={[{ label: 'Home', href: '/home' }, { label: 'Certificates', current: true }]}
-        />
+        <PageBanner page="certificates" />
 
         <section className="awards-page__list" aria-label="Siddhi Constructions certificates">
           {certificates.map((certificate, index) => (

@@ -5,7 +5,6 @@ import BackToTopButton from '../components/common/BackToTopButton.jsx'
 import PageBanner from '../components/common/PageBanner.jsx'
 
 const assetBase = 'https://www.siddhiconstructions.com/assets/images'
-const achievementsBanner = `${assetBase}/bread/bread3.jpg`
 
 const monumentalProjects = [
   {
@@ -106,16 +105,7 @@ export default function AchievementsPage() {
     <div className="page-shell achievements-page">
       <Header />
       <main>
-        <PageBanner
-          title="Achievements"
-          watermark="ACHIEVEMENTS"
-          backgroundImage={achievementsBanner}
-          breadcrumbs={[
-            { label: 'Home', href: '/home' },
-            { label: 'Achievements', href: '/achievements', current: true },
-          ]}
-          variant="achievements"
-        />
+        <PageBanner page="achievements" />
 
         <section className="achievements-rating" aria-labelledby="ratings-title">
           <div className="achievements-rating__grid">
